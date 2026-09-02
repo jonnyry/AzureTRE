@@ -137,6 +137,10 @@
           "description": "When true, TreAdmins can assign/deassign users to workspaces via the UI.",
           "type": "boolean"
         },
+        "cost_reporting_enabled": {
+          "description": "Enable/disable cost reporting",
+          "type": "boolean"
+        },
         "enable_dns_policy": {
           "description": "Enable DNS policy on the firewall to restrict DNS resolution to allowed domain list.",
           "type": "boolean"

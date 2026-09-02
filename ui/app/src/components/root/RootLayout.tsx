@@ -47,6 +47,12 @@ export const RootLayout: React.FunctionComponent = () => {
 
   useEffect(() => {
     const getCosts = async () => {
+      if (!config.costReportingEnabled) {
+        costsWriteCtx.current.setLoadingState(LoadingState.NotSupported);
+        setLoadingCostState(LoadingState.NotSupported);
+        return;
+      }
+
       try {
         if (appRolesCtx.roles.includes(RoleName.TREAdmin)) {
           costsWriteCtx.current.setLoadingState(LoadingState.Loading);

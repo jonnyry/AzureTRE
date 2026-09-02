@@ -21,9 +21,10 @@ jq --arg rootClientId "${SWAGGER_UI_CLIENT_ID}" \
   --arg version "${ui_version}" \
   --arg activeDirectoryUri "${activeDirectoryUri}" \
   --arg userManagementEnabled "${USER_MANAGEMENT_ENABLED:-False}" \
+  --arg costReportingEnabled "${COST_REPORTING_ENABLED:-True}" \
   --arg uiSiteName "${UI_SITE_NAME:-}" \
   --arg uiFooterText "${UI_FOOTER_TEXT:-}" \
-  '.rootClientId = $rootClientId | .rootTenantId = $rootTenantId | .treApplicationId = $treApplicationId | .treUrl = $treUrl | .treId = $treId | .version = $version | .activeDirectoryUri = $activeDirectoryUri | .userManagementEnabled = $userManagementEnabled | .uiSiteName = $uiSiteName | .uiFooterText = $uiFooterText' ./src/config.source.json > ./src/config.json
+  '.rootClientId = $rootClientId | .rootTenantId = $rootTenantId | .treApplicationId = $treApplicationId | .treUrl = $treUrl | .treId = $treId | .version = $version | .activeDirectoryUri = $activeDirectoryUri | .userManagementEnabled = $userManagementEnabled | .costReportingEnabled = $costReportingEnabled | .uiSiteName = $uiSiteName | .uiFooterText = $uiFooterText' ./src/config.source.json > ./src/config.json
 
 # build and deploy the app
 npm install

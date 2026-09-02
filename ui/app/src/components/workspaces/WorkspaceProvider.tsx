@@ -21,6 +21,7 @@ import { LoadingState } from "../../models/loadingState";
 import { ExceptionLayout } from "../shared/ExceptionLayout";
 import { AppRolesContext } from "../../contexts/AppRolesContext";
 import { RoleName, WorkspaceRoleName } from "../../models/roleNames";
+import config from "../../config.json";
 
 export const WorkspaceProvider: React.FunctionComponent = () => {
   const apiCall = useAuthApiCall();
@@ -124,6 +125,9 @@ export const WorkspaceProvider: React.FunctionComponent = () => {
 
   useEffect(() => {
     const getWorkspaceCosts = async () => {
+      if (!config.costReportingEnabled) {
+        return;
+      }
       try {
         // TODO: amend when costs enabled in API for WorkspaceRoleName.Researcher
         if (wsRoles.includes(WorkspaceRoleName.WorkspaceOwner)) {

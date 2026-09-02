@@ -58,6 +58,8 @@ tre:
 
   # Set to true if TreAdmins should be able to assign and de-assign users to workspaces via the UI
   user_management_enabled: false
+  # Set to false if you wish to disable cost reporting (for example in subscriptions that don't have cost management enabled)
+  cost_reporting_enabled: true
 
   # Uncomment to enable DNS Security policy on the system, and add any known DNS names that you need to allow
   # DNS queries on, in addition to those in the core list in core/terraform/allowed-dns.json

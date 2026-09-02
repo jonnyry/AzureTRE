@@ -158,6 +158,10 @@ inputs:
     description: "If set to true TRE Admins are able to assign and de-assign users to workspaces via the UI"
     required: false
     default: "false"
+  COST_REPORTING_ENABLED:
+    description: "If set to true cost reporting is enabled in the TRE portal"
+    required: false
+    default: "true"
   PRIVATE_AGENT_SUBNET_ID:
     description: Enables vnet exception for the subnet to access private resources
     required: false
@@ -319,6 +323,7 @@ runs:
           -e TF_VAR_external_key_store_id="${{ inputs.EXTERNAL_KEY_STORE_ID }}" \
           -e TF_VAR_user_management_enabled="${{ (inputs.USER_MANAGEMENT_ENABLED != '' && inputs.USER_MANAGEMENT_ENABLED) || 'false' }}" \
           -e USER_MANAGEMENT_ENABLED="${{ inputs.USER_MANAGEMENT_ENABLED }}" \
+          -e COST_REPORTING_ENABLED="${{ inputs.COST_REPORTING_ENABLED }}" \
           -e PRIVATE_AGENT_SUBNET_ID=${{ inputs.PRIVATE_AGENT_SUBNET_ID }} \
           -e TF_VAR_private_agent_subnet_id=${{ inputs.PRIVATE_AGENT_SUBNET_ID }} \
           -e TF_VAR_auto_grant_workspace_consent="${{ (inputs.AUTO_GRANT_WORKSPACE_CONSENT != '' && inputs.AUTO_GRANT_WORKSPACE_CONSENT) || 'false' }}" \
